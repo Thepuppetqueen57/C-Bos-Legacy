@@ -176,8 +176,8 @@ while cmdloop == "Shut":
         time.sleep(0.1)
         print("38: Get server text (Gets the text from a text file on the server)")
     elif(cmd=="Relogin" or cmd=="Relog" or cmd=="Logout"):
-        newuser=input("Newuser:")
-        print(f"Now logged into {newuser}")
+        user=input("Newuser:")
+        print(f"Now logged into {user}")
     elif(cmd=="Goodbye"):
         cboslib.spamgoodbye()
         exit()

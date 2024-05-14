@@ -233,8 +233,4 @@ def makebio():
     # Send POST request
     response = requests.post(url, data=payload)
 
-    # Check response
-    if response.status_code == 200:
-        print("Bio added successfully.")
-    else:
-        print("Error:", response.text)
+    print(response.text)
