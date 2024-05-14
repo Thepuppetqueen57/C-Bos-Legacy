@@ -170,15 +170,9 @@ def get_remote_value(url):
         return None
 
 def check_version():
-    # URL to fetch the value from
     url = "https://tps.puppet57.site/cbos/backend/versioncheck.php"
-    
-    # Value stored in the program
-    local_value = 3.2  # Change this to your desired value
-    
-    # Fetch value from URL
+    local_value = 3.2
     remote_value = get_remote_value(url)
-    
     if remote_value is not None:
         if remote_value > local_value:
             return "Update available!"
@@ -220,17 +214,9 @@ def read_from_file(filename):
     return content
 
 def makebio():
-    # Define the URL of your PHP script
     url = 'https://tps.puppet57.site/cbos/backend/makebio.php'
     user = read_from_file("essentials/user.txt")
-
-    # Define contents variable
     contents = input("Text: ")
-
-    # Define the payload (data to be sent via POST request)
     payload = {'user': user, 'contents': contents}
-
-    # Send POST request
     response = requests.post(url, data=payload)
-
     print(response.text)
