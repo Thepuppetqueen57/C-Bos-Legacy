@@ -1,6 +1,6 @@
 import time
 import subprocess
-from essentials import cboslib
+from libs import cboslib
 import ctypes
 from colorama import Fore
 import requests
@@ -23,7 +23,7 @@ time.sleep(0.6)
 
 user=input("Username: ")
 
-with open("essentials/user.txt", 'w') as file:
+with open("libs/user.txt", 'w') as file:
     file.write(user)
 
 if user.lower() == "admin123":
