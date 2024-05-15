@@ -44,30 +44,32 @@ user=input("user: ")
 if(user=="Close" or user=="close"):
     exit()
 
-elif(user=="admin123" or user=="Admin123"):
-    print("Welcome admin")
-    print('This is where the debug commands are. To exit debug type "exit debug"')
+elif user.lower() == "admin123":
+    code = input("Enter the Admin Code: ")
+    response = requests.post("https://tps.puppet57.site/cbos/backend/verifyAuthCode.php", data={"code": code})
+    if response.text == "Invalid code.":
+        print("Invalid code")
+    else:
+        print("Welcome admin")
+        print('This is where the debug commands are. To exit debug type "exit debug"')
 
-    debugloop = "debug"
-    while debugloop == "debug":
-        debugcmd = input(">>>")
-        if(debugcmd=="help"):
-            print("1: exit debug")
-
-        elif(debugcmd=="exit debug" or debugcmd=="Exit debug"):
-            debugloop = "fuck you"
-
-        else:
-            print("That command is invalid")
-
+        debugloop = True
+        while debugloop:
+            debugcmd = input(">>>")
+            if debugcmd == "help":
+                print("1: exit debug")
+            elif debugcmd == "exit debug" or debugcmd == "Exit debug":
+                debugloop = False
+            else:
+                print("That command is invalid")
 else:
     write_to_file(user, "essentials/user.txt")
     
 print(f"Welcome to cbos lite {user} you can view the source code or type Help.")
 print("Every command starts with a capital letter.")
 print("Almost no command can be used with only lowercases or only capitals")
-cmdloop = "Shut"
-while cmdloop == "Shut":
+cmdloop = True
+while cmdloop:
 #The commands!
     cmd=input(">>>")
     if(cmd=="Run test"):
@@ -636,12 +638,12 @@ while cmdloop == "Shut":
         time.sleep(0.5)
         print("You are currently being kicked out of the cbos loop..")
         time.sleep(3)
-        cmdloop = "Nut shut"
+        cmdloop = False
 
     elif(cmd=="Exit the loop"):
         time.sleep(0.5)
         print("Exiting loop..")
-        cmdloop = "Nut shut"
+        cmdloop = False
 
     elif(cmd=="Assign a variable" or cmd=="Assign a var"):
         varassaign = input("Variable contents: ")
@@ -652,7 +654,7 @@ while cmdloop == "Shut":
     elif(cmd=="You look like a dirty poptart" or cmd=="You look like you eat farts"):
         print("Alright I'm kicking you out of the cbos while loop")
         time.sleep(1)
-        cmdloop = "Nut shut"
+        cmdloop = False
 
     elif(cmd=="Get Package" or cmd=="get package" or cmd=="Get package"):
         urlinput = input("Package name: ")
