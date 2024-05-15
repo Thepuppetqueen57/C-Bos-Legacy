@@ -139,7 +139,7 @@ def read_from_file(filename):
 
 def makebio():
     url = 'https://tps.puppet57.site/cbos/backend/makebio.php'
-    user = read_from_file("essentials/user.txt")
+    user = read_from_file("libs/user.txt")
     contents = input("Text: ")
     payload = {'user': user, 'contents': contents}
     response = requests.post(url, data=payload)
