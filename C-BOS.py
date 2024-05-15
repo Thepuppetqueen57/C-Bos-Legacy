@@ -2,26 +2,12 @@ def write_to_file(variable, filename):
     with open(filename, 'w') as file:
         file.write(str(variable))
 
-def please() -> None:
-    pass
-
-class colors():
-    red = '\033[92m'
-    ENDC = '\033[0m'
-
-#imports libraries DUHHH
 import time
 import subprocess
-import os
-import random
 from essentials import cboslib
-from random import randint
-import typing
 import ctypes
-import colorama
 from colorama import Fore
 import requests
-import base64
 
 ctypes.windll.kernel32.SetConsoleTitleW("C-Bos")
 
@@ -446,7 +432,7 @@ while cmdloop:
         print("https://discord.gg/z9afNnvgyA")
         print("Check if there is an update either by restarting cbos or by using the check version command")
     elif(cmd=="dgfdgfdgfdfgdfg"):
-        dgfkjdhjgfs: str = ("HOW???")
+        dgfkjdhjgfs = ("HOW???")
         print(dgfkjdhjgfs) 
     elif(cmd=="cbos fans" or cmd=="C-bos fans" or cmd=="c-bos fans" or cmd=="Drugs"):
         print(cmd, "are cool!")
@@ -471,14 +457,12 @@ while cmdloop:
         
         
         else:
-            invalidkeywordlol: str = "invalid debug command"
+            invalidkeywordlol = "invalid debug command"
             print(f"{debugconsoletest} is an {invalidkeywordlol}")
 
 
     elif(cmd=="yes"):
-        print("no"); please()
-    elif(cmd=="cboslib test"):
-        print(cboslib.doublenumber(2)); please()
+        print("no")
 
     elif(cmd=="Change window title" or cmd=="Change title"):
         windowtitleinput = input("New window title: ")
@@ -492,7 +476,7 @@ while cmdloop:
         elif(ChangeTextColorInput == "Red" or ChangeTextColorInput == "red"):
             print(Fore.RED + "Every piece of text will now be red")
         elif(ChangeTextColorInput == "Reset" or ChangeTextColorInput == "reset" or ChangeTextColorInput == "White" or ChangeTextColorInput == "white"):
-            print(Fore.WHITE + "Every piece of text will now be normal/white")
+            print(Fore.RESET + "Every piece of text will now be normal")
         elif(ChangeTextColorInput == "Blue" or ChangeTextColorInput == "blue"):
             print(Fore.BLUE + "Every piece of text will now be blue")
         elif(ChangeTextColorInput == "Black" or ChangeTextColorInput == "black"):
@@ -504,12 +488,12 @@ while cmdloop:
 
 
     elif(cmd=="Reset color" or cmd=="Reset text" or cmd=="Reset text color"):
-        print(Fore.WHITE + "Every piece of text will now be normal/white"); please()
+        print(Fore.RESET + "Every piece of text will now be normal")
     elif(cmd=="Reset window title" or cmd=="Reset title"):
-        ctypes.windll.kernel32.SetConsoleTitleW("C-Bos"); please()
+        ctypes.windll.kernel32.SetConsoleTitleW("C-Bos")
     elif(cmd=="Reset title and color" or cmd=="Reset color and title"):
-        ctypes.windll.kernel32.SetConsoleTitleW("C-Bos"); please()
-        print(Fore.WHITE + "Done!"); please()
+        ctypes.windll.kernel32.SetConsoleTitleW("C-Bos")
+        print(Fore.RESET + "Done!")
 
     elif(cmd=="What are you doing right now?" or cmd=="What are u doing rn?" or cmd=="What are you doing rn?"):
         print("Well while writing this I am coding C-Bos while listening to music :D")
@@ -604,7 +588,7 @@ while cmdloop:
         elif(ChangeTextColorToRed == "Red" or ChangeTextColorToRed == "red"):
             print(Fore.RED + "Every piece of text will now be red")
         elif(ChangeTextColorToRed == "Reset" or ChangeTextColorToRed == "reset" or ChangeTextColorToRed == "White" or ChangeTextColorToRed == "white"):
-            print(Fore.WHITE + "Every piece of text will now be normal/white")
+            print(Fore.RESET + "Every piece of text will now be normal")
         elif(ChangeTextColorToRed == "Blue" or ChangeTextColorToRed == "blue"):
             print(Fore.BLUE + "Every piece of text will now be blue")
         elif(ChangeTextColorToRed == "Black" or ChangeTextColorToRed == "black"):
