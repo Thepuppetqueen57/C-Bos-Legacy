@@ -219,4 +219,32 @@ def makebio():
     contents = input("Text: ")
     payload = {'user': user, 'contents': contents}
     response = requests.post(url, data=payload)
-    print(response.text)
+    
+    # Check response
+    if response.status_code == 200:
+        if response.text == "1":
+            print(f"Success! Your new bio is: {contents}")
+    else:
+        print("Error:", response.text)
+
+def getbio():
+    # Define the URL of the PHP script
+    url = 'https://tps.puppet57.site/cbos/backend/getbio.php'
+
+    # Define the user input
+    userinput = input('User: ')
+
+    # Define the payload (data to be sent via POST request)
+    payload = {'user': userinput}
+
+    # Send POST request
+    response = requests.post(url, data=payload)
+
+    # Check response
+    if response.status_code == 200:
+        if response.text == "-1":
+            print("Error: User not found")
+        else:
+            print(f"Bio for {userinput}: {response.text}")
+    else:
+        print("Error:", response.text)

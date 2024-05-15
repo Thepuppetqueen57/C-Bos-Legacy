@@ -175,6 +175,10 @@ while cmdloop == "Shut":
         print("37: Edit server text (Edits a text file on the server to whatever you want)")
         time.sleep(0.1)
         print("38: Get server text (Gets the text from a text file on the server)")
+        time.sleep(0.1)
+        print("39: Make bio (Adds text to a db under your user)")
+        time.sleep(0.1)
+        print("40: Get bio (Gets a users bio)")
     elif(cmd=="Relogin" or cmd=="Relog" or cmd=="Logout"):
         user=input("Newuser:")
         print(f"Now logged into {user}")
@@ -681,7 +685,8 @@ while cmdloop == "Shut":
     elif(cmd=="Make bio" or cmd=="make bio"):
         cboslib.makebio()
 
-
+    elif(cmd=="Get bio" or cmd=="get bio"):
+        cboslib.getbio()
         
 
 
