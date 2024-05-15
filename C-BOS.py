@@ -9,16 +9,16 @@ import base64
 ctypes.windll.kernel32.SetConsoleTitleW("C-Bos")
 
 print("Checking for updates...")
-time.sleep(0.3)
+time.sleep(0.5)
 version = cboslib.check_version()
 print(version)
 time.sleep(0.5)
 print("Booting C-Bos The crappy OS")
-time.sleep(1)
+time.sleep(0.5)
 print("Loading user data...")
-time.sleep(1)
+time.sleep(0.5)
 print("Loading files...")
-time.sleep(1)
+time.sleep(0.5)
 print("Done!")
 time.sleep(0.6)
 
@@ -38,7 +38,7 @@ if user.lower() == "admin123":
 
         debugloop = True
         while debugloop:
-            debugcmd = input(">>> ")
+            debugcmd = input(">> ")
             if debugcmd == "help":
                 print("1: exit debug")
             elif debugcmd == "exit debug" or debugcmd == "Exit debug":
@@ -47,7 +47,7 @@ if user.lower() == "admin123":
                 print("That command is invalid")
     
 print(f"Welcome to cbos lite {user} you can view the source code or type Help.")
-print("Every command starts with a capital letter.")
+print("Most commands start with a capital letter.")
 print("Almost no command can be used with only lowercases or only capitals")
 cmdloop = True
 while cmdloop:
@@ -168,7 +168,7 @@ while cmdloop:
         exit()
     # this command (The one below this comment) makes it so if you type nothing it won't say [blank] is invalid
     elif(cmd=="" or cmd=="  "):
-        print("")
+        pass
 
     elif(cmd=="Make file" or cmd=="Create file"):
         name = input("file name:")
@@ -195,6 +195,7 @@ while cmdloop:
     elif(cmd=="What is z-bos?"):
         print("Z-Bos is a dev version of C-Bos and it only has a few commands for devs to start off on")
         print("It is for making different fan made versions of C-Bos")
+        print("Z-Bos is not maintained anymore but is available for download in the discord")
     elif(cmd=="Mto-OS is better than you"):
         print("HOW DARE YOU")
     elif(cmd=="Oh yes go faster" or cmd=="oh yes go faster" or cmd=="OH YES GO FASTER"):
@@ -241,7 +242,7 @@ while cmdloop:
         time.sleep(1)
         exit()
     elif(cmd=="What is the best theme on any program?" or cmd=="What is the best theme?"):
-        print("DARK MOOOOOODE")
+        print("dark mode don't argue or I will shoot you with a water pistol (in winter)")
     elif(cmd=="Break" or cmd=="Break c-bos" or cmd=="Break C-Bos"):
         print("BET")
         print("It will take 4645456 seconds to fix again...")
@@ -251,7 +252,7 @@ while cmdloop:
     elif(cmd=="I know who you are"):
         print("...")
         time.sleep(2)
-        print("No crap I'm puppet")
+        print("No crap I am [SOMEONE YOU MAY KNOW]")
         time.sleep(1)
     elif(cmd=="Clear" or cmd=="Clear log" or cmd=="Clear logs"):
         print("")
