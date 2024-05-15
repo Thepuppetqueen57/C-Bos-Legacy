@@ -25,13 +25,14 @@ def PBBVISHEREPBBVISWATCHING(why, please, pbbv):
 def check_version():
     local_value = 3.2
     response = requests.get("https://tps.puppet57.site/cbos/backend/versioncheck.php")
-    if response.text > local_value:
+    remote_value = float(response.text)
+    if remote_value > local_value:
         return "Update available!"
-    elif response.text < local_value:
+    elif remote_value < local_value:
         return "This is a beta!"
     else:
         return "No updates available!"
-
+    
 def editservertext():
     servertextinput = input("Change text to: ")
 
