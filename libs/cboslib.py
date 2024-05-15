@@ -39,7 +39,7 @@ def editservertext():
         'text': servertextinput
     }
 
-    response = requests.post('https://tps.puppet57.site/cbos/backend/txtedit.php', data=data)
+    response = requests.post('https://tps.puppet57.site/cbos/backend/editText.php', data=data)
 
     if response.status_code == 200:
         print(f"Text edited successfully! The new text in the txt file on the servers is: {servertextinput}")
@@ -47,7 +47,7 @@ def editservertext():
         print(f"Error when editing server text. Status code: {response.status_code}")
 
 def getservertext():
-    response = requests.get('https://tps.puppet57.site/cbos/backend/txtget.php')
+    response = requests.get('https://tps.puppet57.site/cbos/backend/getText.php')
 
     if response.status_code == 200:
         print(f"The text on the server is: {response.text}")
