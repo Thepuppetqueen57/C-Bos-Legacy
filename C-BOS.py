@@ -51,7 +51,7 @@ print("Most commands start with a capital letter.")
 print("Almost no command can be used with only lowercases or only capitals")
 cmdloop = True
 while cmdloop:
-    cmd=input("> ")
+    cmd=input(">>> ")
     if(cmd=="Run test"):
         print("It is workin!")
     elif(cmd=="Shut down" or cmd=="Turn off" or cmd=="Turn off c-bos" or cmd=="Exit" or cmd=="exit"):
@@ -59,11 +59,7 @@ while cmdloop:
         time.sleep(2)
         exit()
     elif(cmd=="Send UwU to cj" or cmd=="Send uwu to cj"):
-        print("Cj is typing...")
-        time.sleep(3)
-        print("Cj: Wtf")
-        time.sleep(3)
-        print("Cj: Never say that again")
+        print("This command has been fucking destroyed")
     elif(cmd=="Run backup systems"):
         print("Backup systems engaged...")
         time.sleep(2)
@@ -659,7 +655,7 @@ while cmdloop:
         cboslib.getbio()
     
     else:
-        print(f"The command \"{cmd}\" doesn't exist. Please try again.")
+        print(f"The command \"{cmd}\" is stupid! Please try again.")
         
 time.sleep(3)
 print("You have exited the loop...")

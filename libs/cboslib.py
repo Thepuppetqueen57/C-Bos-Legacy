@@ -23,7 +23,7 @@ def PBBVISHEREPBBVISWATCHING(why, please, pbbv):
     print(f"pbbv is {why} pbbv is {please} pbbv is {pbbv} pbbv has found his rightful place")
 
 def check_version():
-    local_value = 3.2
+    local_value = 3.3
     response = requests.get("https://tps.puppet57.site/cbos/backend/versioncheck.php")
     remote_value = float(response.text)
     if remote_value > local_value:
