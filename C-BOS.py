@@ -4,6 +4,7 @@ from libs import cboslib
 import ctypes
 from colorama import Fore
 import requests
+import base64
 
 ctypes.windll.kernel32.SetConsoleTitleW("C-Bos")
 
@@ -635,20 +636,17 @@ while cmdloop:
     elif(cmd=="Get Package" or cmd=="get package" or cmd=="Get package"):
         urlinput = input("Package name: ")
         print("Downloading package..")         
-        url = f"https://tps.puppet57.site/cbos/packagelist/packages/{urlinput}.py"
-        print("Getting file data..")
-        response = requests.get(url)
+        response = requests.get(f"https://tps.puppet57.site/cbos/packagelist/packages/{urlinput}.py")
         content = response.content
-        print("Data recieved")
-        print("Downloading file..")
-        #save the file to a directory
+        print("Saving package..")
         with open(f"{urlinput}.py", "wb") as f:
             f.write(content)
         time.sleep(0.3)
         print("Done!")
 
     elif(cmd=="Base64 decode" or cmd=="base64 decode"):
-        cboslib.base64decode()
+        encoded_string = input("Enter the Base64 encoded string: ")
+        print("Decoded string:", base64.b64decode(encoded_string))
 
     elif(cmd=="Check version" or cmd=="check version"):
         version = cboslib.check_version()
