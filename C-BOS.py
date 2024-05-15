@@ -1,7 +1,3 @@
-def write_to_file(variable, filename):
-    with open(filename, 'w') as file:
-        file.write(str(variable))
-
 import time
 import subprocess
 from essentials import cboslib
@@ -25,12 +21,12 @@ time.sleep(1)
 print("Done!")
 time.sleep(0.6)
 
-user=input("user: ")
+user=input("Username: ")
 
-if(user=="Close" or user=="close"):
-    exit()
+with open("essentials/user.txt", 'w') as file:
+    file.write(user)
 
-elif user.lower() == "admin123":
+if user.lower() == "admin123":
     code = input("Enter the Admin Code: ")
     response = requests.post("https://tps.puppet57.site/cbos/backend/verifyAuthCode.php", data={"code": code})
     if response.text == "Invalid code.":
@@ -41,26 +37,22 @@ elif user.lower() == "admin123":
 
         debugloop = True
         while debugloop:
-            debugcmd = input(">>>")
+            debugcmd = input(">>> ")
             if debugcmd == "help":
                 print("1: exit debug")
             elif debugcmd == "exit debug" or debugcmd == "Exit debug":
                 debugloop = False
             else:
                 print("That command is invalid")
-else:
-    write_to_file(user, "essentials/user.txt")
     
 print(f"Welcome to cbos lite {user} you can view the source code or type Help.")
 print("Every command starts with a capital letter.")
 print("Almost no command can be used with only lowercases or only capitals")
 cmdloop = True
 while cmdloop:
-#The commands!
-    cmd=input(">>>")
+    cmd=input(">>> ")
     if(cmd=="Run test"):
         print("It is workin!")
-    #elif statements make up most of the commands and run test uses if because it is the first command
     elif(cmd=="Shut down" or cmd=="Turn off" or cmd=="Turn off c-bos" or cmd=="Exit" or cmd=="exit"):
         print("Shutting Down...") 
         time.sleep(2)
