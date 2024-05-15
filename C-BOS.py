@@ -425,8 +425,6 @@ while cmdloop:
         cboslib.appendtableflip("ok")
     elif(cmd=="Fix the table" or cmd=="Fix le table"):
         cboslib.fixtable("Fiiine ugh")
-    elif(cmd=="pbbv is watching" or cmd=="PBBV is watching" or cmd=="Pbbv is watching"):
-        cboslib.PBBVISHEREPBBVISWATCHING("watching", "here", "always watching from the shadows")
     elif(cmd=="Debug" or cmd=="debug"):
         print("Okay!")
         debugconsoletest = input("Debug: ")
