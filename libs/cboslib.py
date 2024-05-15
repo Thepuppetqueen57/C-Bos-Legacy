@@ -79,9 +79,9 @@ def getbio():
 
     if response.status_code == 200:
         print(f"Bio for {userinput}: {response.text}")
-    if response.status_code == 500:
+    elif response.status_code == 500:
         print(f"Server error")
-    if response.status_code == 404:
+    elif response.status_code == 404:
         print(f"User not found")
     else:
         print("Error:", response.text)
