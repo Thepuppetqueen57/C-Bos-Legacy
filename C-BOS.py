@@ -16,13 +16,13 @@ time.sleep(0.5)
 print("Booting C-Bos The crappy OS")
 time.sleep(0.5)
 print("Loading user data...")
-time.sleep(0.5)
+time.sleep(0.52)
 print("Loading files...")
-time.sleep(0.5)
+time.sleep(0.25)
 print("Done!")
-time.sleep(0.6)
+time.sleep(0.3)
 
-user=input("Username: ")
+user = input("Username: ")
 
 with open("libs/user.txt", 'w') as file:
     file.write(user)
@@ -34,14 +34,14 @@ if user.lower() == "admin123":
         print("Invalid code")
     else:
         print("Welcome admin")
-        print('This is where the debug commands are. To exit debug type "exit debug"')
+        print('This is where the debug commands are. To go back to normal C-Bos type "exit"')
 
         debugloop = True
         while debugloop:
-            debugcmd = input(">> ")
+            debugcmd = input("> ").lower()
             if debugcmd == "help":
-                print("1: exit debug")
-            elif debugcmd == "exit debug" or debugcmd == "Exit debug":
+                print("1: Exit (Goes back to normal mode)")
+            elif debugcmd == "exit":
                 debugloop = False
             else:
                 print("That command is invalid")
@@ -51,7 +51,7 @@ print("Most commands start with a capital letter.")
 print("Almost no command can be used with only lowercases or only capitals")
 cmdloop = True
 while cmdloop:
-    cmd=input(">>> ")
+    cmd=input("> ")
     if(cmd=="Run test"):
         print("It is workin!")
     elif(cmd=="Shut down" or cmd=="Turn off" or cmd=="Turn off c-bos" or cmd=="Exit" or cmd=="exit"):
@@ -166,10 +166,8 @@ while cmdloop:
     elif(cmd=="Goodbye"):
         cboslib.spamgoodbye()
         exit()
-    # this command (The one below this comment) makes it so if you type nothing it won't say [blank] is invalid
-    elif(cmd=="" or cmd=="  "):
+    elif(cmd.replace(" ", "")==""):
         pass
-
     elif(cmd=="Make file" or cmd=="Create file"):
         name = input("file name:")
         file = open(name, "w")
@@ -235,11 +233,6 @@ while cmdloop:
         print("1: Notepad")
         print("2: Local web browser")
     elif(cmd=="Crash" or cmd=="Instant shut down" or cmd=="crash"):
-        exit()
-    elif(cmd==" "):
-        print("You thought you were trying to find a glitch")
-        print("Well you found something!")
-        time.sleep(1)
         exit()
     elif(cmd=="What is the best theme on any program?" or cmd=="What is the best theme?"):
         print("dark mode don't argue or I will shoot you with a water pistol (in winter)")
@@ -664,16 +657,9 @@ while cmdloop:
 
     elif(cmd=="Get bio" or cmd=="get bio"):
         cboslib.getbio()
-        
-
-
     
-        
-    
-    #The else statement makes it so if you type something incorrect it will just say it does not exist
     else:
-        print(f"{cmd} is stupid! try again!")
-        # Welcome to the C-Bos code! Have a look around! Every command starts with an elif statement but the first one starts with a if statement soooo-
+        print(f"The command \"{cmd}\" doesn't exist. Please try again.")
         
 time.sleep(3)
 print("You have exited the loop...")
