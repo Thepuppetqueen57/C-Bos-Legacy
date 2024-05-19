@@ -26,7 +26,7 @@ except ImportError:
     from prompt_toolkit import prompt
 
 # update this when there is a new cbos update
-version = 4.0
+version = 4.1
 
 cboslib.set_title()
 cboslib.clear_console()
