@@ -48,28 +48,6 @@ def getservertext():
         )
 
 
-def makebio(username, password, bio):
-    response = requests.post(
-        'https://tps.puppet57.site/cbos/backend/makeBio.php',
-        data={
-            "username": username,
-            "password": password,
-            "bio": bio
-        })
-    print(response.json().get("response", "No server response found"))
-
-
-def getbio(username, localusername, localpassword):
-    response = requests.post(
-        'https://tps.puppet57.site/cbos/backend/getBio.php',
-        data={
-            "username": username,
-            "localusername": localusername,
-            "localpassword": localpassword
-        })
-    print(response.json().get("response", "No server response found"))
-
-
 def login(username, password):
     response = requests.post(
         'https://tps.puppet57.site/cbos/backend/accountLogin.php',

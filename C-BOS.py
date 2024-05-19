@@ -79,7 +79,7 @@ print(
 if isAdmin:
     print(
         cboslib.randomstringcolor(
-            "You are a admin. Admin commands will be added soon!"))
+            "You are a admin. Run \"admin help\" for admin commands."))
 print(cboslib.randomstringcolor("Commands are no longer case sensitive btw!!"))
 cmdloop = True
 while cmdloop:
@@ -614,9 +614,43 @@ while cmdloop:
     elif lowercmd == "get server text":
         cboslib.getservertext()
     elif lowercmd == "make bio":
-        cboslib.makebio(username, password, input('Enter your new bio: '))
+        newbio = input('Enter your new bio: ')
+        response = requests.post(
+            'https://tps.puppet57.site/cbos/backend/makeBio.php',
+            data={
+                "username": username,
+                "password": password,
+                "bio": newbio
+            })
+        print(response.json().get("response", "No server response found"))
     elif lowercmd == "get bio":
-        cboslib.getbio(input('User: '), username, password)
+        targetuser = input('User: ')
+        response = requests.post(
+            'https://tps.puppet57.site/cbos/backend/getBio.php',
+            data={
+                "username": targetuser,
+                "localusername": username,
+                "localpassword": password
+            })
+        print(response.json().get("response", "No server response found"))
+    elif isAdmin:
+        #the place, the home, of admin cmds.
+        if lowercmd == "admin help":
+            print("Here is a list of admin commands:")
+            time.sleep(0.1)
+            print("1: Admin Edit Bio")
+        elif lowercmd == "admin edit bio":
+            targetuser = input('Target username: ')
+            newbio = input(f'Enter {targetuser}\'s new bio: ')
+            response = requests.post(
+                'https://tps.puppet57.site/cbos/backend/makeBio.php?admin=1',
+                data={
+                    "username": username,
+                    "password": password,
+                    "bio": newbio,
+                    "targetuser": targetuser
+                })
+            print(response.json().get("response", "No server response found"))
     else:
         print(f"The command \"{cmd}\" is stupid! Please try again.")
 
