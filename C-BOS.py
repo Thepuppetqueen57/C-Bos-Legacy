@@ -14,8 +14,8 @@ try:
 except ImportError:
     print("Installing package \"pwinput\"")
     subprocess.check_call([sys.executable, "-m", "pip", "install", "pwinput"])
-    import pwinput
     cboslib.clear_console()
+    import pwinput
 
 # update this when there is a new cbos update
 version = 4.0
