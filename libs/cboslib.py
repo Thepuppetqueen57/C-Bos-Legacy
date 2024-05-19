@@ -1,35 +1,23 @@
-import time
 import requests
+import sys
+import os
+import ctypes
+import colorama
+import random
 
-def appendtableflip(text):
-    print(text, "(╯°□°)╯︵ ┻━┻")
 
-def fixtable(text):
-    print(text, "┬─┬ノ( º _ ºノ)")
-
-def appendshrug(text):
-    print(text, "¯\_(ツ)_/¯")
-
-def spamgoodbye() -> None:
-    for i in range(15):
-        print("Mistake")
-        time.sleep(0.5)
-    for i in range(10):
-        print("Help")
-        time.sleep(0.1)
-    print("৳₣₠៛₢૱៛৻¥₰৳₳₽﷼﷼﷼₶৳৳₪₰௹₠₳₺⨤⨑⨈⨅⨇⨇⨅⨋⨑")
-
-def check_version():
-    local_value = 3.3
-    response = requests.get("https://tps.puppet57.site/cbos/backend/versioncheck.php")
-    remote_value = float(response.text)
-    if remote_value > local_value:
+def check_version(version):
+    response = requests.get(
+        "https://tps.puppet57.site/cbos/backend/versioncheck.php")
+    server_response = float(response.text)
+    if server_response > version:
         return "Update available!"
-    elif remote_value < local_value:
+    elif server_response < version:
         return "This is a beta!"
     else:
         return "No updates available!"
-    
+
+
 def editservertext():
     servertextinput = input("Change text to: ")
 
@@ -37,49 +25,82 @@ def editservertext():
         'text': servertextinput
     }
 
-    response = requests.post('https://tps.puppet57.site/cbos/backend/editText.php', data=data)
+    response = requests.post(
+        'https://tps.puppet57.site/cbos/backend/editText.php', data=data)
 
     if response.status_code == 200:
-        print(f"Text edited successfully! The new text in the txt file on the servers is: {servertextinput}")
+        print(
+            f"Text edited successfully! The new text in the txt file on the servers is: {servertextinput}")
     else:
-        print(f"Error when editing server text. Status code: {response.status_code}")
+        print(
+            f"Error when editing server text. Status code: {response.status_code}")
+
 
 def getservertext():
-    response = requests.get('https://tps.puppet57.site/cbos/backend/getText.php')
+    response = requests.get(
+        'https://tps.puppet57.site/cbos/backend/getText.php')
 
     if response.status_code == 200:
         print(f"The text on the server is: {response.text}")
     else:
-        print(f"Error when getting server text. Status code: {response.status_code}")
+        print(
+            f"Error when getting server text. Status code: {response.status_code}")
 
-def read_from_file(filename):
-    with open(filename, 'r') as file:
-        content = file.read()
-    return content
 
-def makebio():
-    user = read_from_file("libs/user.txt")
-    contents = input("Text: ")
-    payload = {'user': user, 'contents': contents}
-    response = requests.post('https://tps.puppet57.site/cbos/backend/makeBio.php', data=payload)
+def makebio(username, password, bio):
+    response = requests.post('https://tps.puppet57.site/cbos/backend/makeBio.php',
+                             data={"username": username, "password": password, "bio": bio})
+    print(response.json().get("response", "No server response found"))
 
-    if response.status_code == 200 and response.text == "1":
-        print(f"Success! Your new bio is: {contents}")
+
+def getbio(username, localusername, localpassword):
+    response = requests.post('https://tps.puppet57.site/cbos/backend/getBio.php', data={
+                             "username": username, "localusername": localusername, "localpassword": localpassword})
+    print(response.json().get("response", "No server response found"))
+
+
+def login(username, password):
+    response = requests.post('https://tps.puppet57.site/cbos/backend/accountLogin.php',
+                             data={"username": username, "password": password})
+    if response.json().get("response", "n/a") == "Successful login":
+        return True, response.json().get("admin", False), response.json().get("newaccount", False), response.json().get("response", "No server response found")  # im on druggies!!!!!!!
     else:
-        print("Error:", response.text)
-        print("Status code:", response.status_code)
+        # (this is needed!!)
+        return False, False, False, response.json().get("response", "No server response found")
 
-def getbio():
-    userinput = input('User: ')
-    payload = {'user': userinput}
-    response = requests.post('https://tps.puppet57.site/cbos/backend/getBio.php', data=payload)
 
-    if response.status_code == 200:
-        print(f"Bio for {userinput}: {response.text}")
-    elif response.status_code == 500:
-        print(f"Server error")
-    elif response.status_code == 404:
-        print(f"User not found")
+def clear_console():
+    if sys.platform.startswith('win'):
+        os.system('cls')
     else:
-        print("Error:", response.text)
-        print("Status code:", response.status_code)
+        os.system('clear')
+
+
+def set_title():
+    ctypes.windll.kernel32.SetConsoleTitleW("C-Bos")
+
+
+def randomcolor():
+    color_choices = [
+        colorama.Fore.BLACK,
+        colorama.Fore.RED,
+        colorama.Fore.GREEN,
+        colorama.Fore.YELLOW,
+        colorama.Fore.BLUE,
+        colorama.Fore.MAGENTA,
+        colorama.Fore.CYAN,
+        colorama.Fore.WHITE,
+        colorama.Fore.LIGHTBLACK_EX,
+        colorama.Fore.LIGHTBLUE_EX,
+        colorama.Fore.LIGHTCYAN_EX,
+        colorama.Fore.LIGHTGREEN_EX,
+        colorama.Fore.LIGHTMAGENTA_EX,
+        colorama.Fore.LIGHTRED_EX,
+        colorama.Fore.LIGHTWHITE_EX,  # what
+        colorama.Fore.LIGHTYELLOW_EX
+    ]
+    return random.choice(color_choices)
+
+
+def randomstringcolor(string):
+    return randomcolor() + string + colorama.Fore.RESET

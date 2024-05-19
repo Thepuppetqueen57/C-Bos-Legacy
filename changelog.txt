@@ -1,3 +1,2 @@
-1: Tweaks
-
-2: Made startup way faster (your welcome)
+3.2: Tweaks & Made startup way faster (your welcome) & other shit
+4.0: Commands aren't case sensitive anymore & there is a REAL login system this time wowie zowie!!!! and "the World of Color Update" with random colors lol, update entirely by Xytriza!
