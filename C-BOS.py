@@ -606,9 +606,8 @@ while cmdloop:
     elif lowercmd == "base64 decode":
         encoded_string = input("Enter the Base64 encoded string: ")
         print("Decoded string:", base64.b64decode(encoded_string))
-    elif lowercmd == "check version" or lowercmd == "check version":
-        version = cboslib.check_version()
-        print(version)
+    elif lowercmd == "check version":
+        print(cboslib.check_version(version))
     elif lowercmd == "edit server text":
         cboslib.editservertext()
     elif lowercmd == "get server text":
