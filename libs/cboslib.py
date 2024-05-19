@@ -21,19 +21,19 @@ def check_version(version):
 def editservertext():
     servertextinput = input("Change text to: ")
 
-    data = {
-        'text': servertextinput
-    }
+    data = {'text': servertextinput}
 
     response = requests.post(
         'https://tps.puppet57.site/cbos/backend/editText.php', data=data)
 
     if response.status_code == 200:
         print(
-            f"Text edited successfully! The new text in the txt file on the servers is: {servertextinput}")
+            f"Text edited successfully! The new text in the txt file on the servers is: {servertextinput}"
+        )
     else:
         print(
-            f"Error when editing server text. Status code: {response.status_code}")
+            f"Error when editing server text. Status code: {response.status_code}"
+        )
 
 
 def getservertext():
@@ -44,29 +44,48 @@ def getservertext():
         print(f"The text on the server is: {response.text}")
     else:
         print(
-            f"Error when getting server text. Status code: {response.status_code}")
+            f"Error when getting server text. Status code: {response.status_code}"
+        )
 
 
 def makebio(username, password, bio):
-    response = requests.post('https://tps.puppet57.site/cbos/backend/makeBio.php',
-                             data={"username": username, "password": password, "bio": bio})
+    response = requests.post(
+        'https://tps.puppet57.site/cbos/backend/makeBio.php',
+        data={
+            "username": username,
+            "password": password,
+            "bio": bio
+        })
     print(response.json().get("response", "No server response found"))
 
 
 def getbio(username, localusername, localpassword):
-    response = requests.post('https://tps.puppet57.site/cbos/backend/getBio.php', data={
-                             "username": username, "localusername": localusername, "localpassword": localpassword})
+    response = requests.post(
+        'https://tps.puppet57.site/cbos/backend/getBio.php',
+        data={
+            "username": username,
+            "localusername": localusername,
+            "localpassword": localpassword
+        })
     print(response.json().get("response", "No server response found"))
 
 
 def login(username, password):
-    response = requests.post('https://tps.puppet57.site/cbos/backend/accountLogin.php',
-                             data={"username": username, "password": password})
+    response = requests.post(
+        'https://tps.puppet57.site/cbos/backend/accountLogin.php',
+        data={
+            "username": username,
+            "password": password
+        })
     if response.json().get("response", "n/a") == "Successful login":
-        return True, response.json().get("admin", False), response.json().get("newaccount", False), response.json().get("response", "No server response found")  # im on druggies!!!!!!!
+        return True, response.json().get("admin", False), response.json().get(
+            "newaccount", False), response.json().get(
+                "response",
+                "No server response found")  # im on druggies!!!!!!!
     else:
         # (this is needed!!)
-        return False, False, False, response.json().get("response", "No server response found")
+        return False, False, False, response.json().get(
+            "response", "No server response found")
 
 
 def clear_console():

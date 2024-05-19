@@ -41,14 +41,18 @@ print(cboslib.randomstringcolor("Booting C-Bos The useless Command Line App"))
 time.sleep(0.3)
 print(cboslib.randomstringcolor("Loading user data..."))
 time.sleep(0.25)
-print(cboslib.randomstringcolor(
-    "Password is valid... checking if it is a new account"))
+print(
+    cboslib.randomstringcolor(
+        "Password is valid... checking if it is a new account"))
 time.sleep(0.25)
 if isNewAccount:
-    print(cboslib.randomstringcolor(
-        "Account is new... skipping check for admin..."))
+    print(
+        cboslib.randomstringcolor(
+            "Account is new... skipping check for admin..."))
 else:
-    print(cboslib.randomstringcolor("Account is not new... checking if admin..."))
+    print(
+        cboslib.randomstringcolor(
+            "Account is not new... checking if admin..."))
     time.sleep(0.1)
     if isAdmin:
         print(cboslib.randomstringcolor("Account is an admin..."))
@@ -62,11 +66,14 @@ time.sleep(0.15)
 print(cboslib.randomstringcolor("Done!"))
 time.sleep(0.3)
 
-print(cboslib.randomstringcolor(
-    f"Welcome to C-Bos Lite v{version}, {username}!\nType \"help\" for a list of commands."))
+print(
+    cboslib.randomstringcolor(
+        f"Welcome to C-Bos Lite v{version}, {username}!\nType \"help\" for a list of commands."
+    ))
 if isAdmin:
-    print(cboslib.randomstringcolor(
-        "You are a admin. Admin commands will be added soon!"))
+    print(
+        cboslib.randomstringcolor(
+            "You are a admin. Admin commands will be added soon!"))
 print(cboslib.randomstringcolor("Commands are no longer case sensitive btw!!"))
 cmdloop = True
 while cmdloop:
@@ -160,21 +167,35 @@ while cmdloop:
         time.sleep(0.1)
         print("31: Assign a var")
         time.sleep(0.1)
-        print("32: Print new var (must be ran only after assign a var has been ran)")
+        print(
+            "32: Print new var (must be ran only after assign a var has been ran)"
+        )
         time.sleep(0.1)
-        print("33: Get package (go to http://tps.puppet57.site/cbos/packagelist for a list of packages. Then take the name of the package minus the file extension and paste it in)")
+        print(
+            "33: Get package (go to http://tps.puppet57.site/cbos/packagelist for a list of packages. Then take the name of the package minus the file extension and paste it in)"
+        )
         time.sleep(0.1)
-        print("34: Run (Enter the name of a package you installed or a built in package also you don't have to put the file extension it will always be .py)")
+        print(
+            "34: Run (Enter the name of a package you installed or a built in package also you don't have to put the file extension it will always be .py)"
+        )
         time.sleep(0.1)
-        print("35: Base64 encode (Encodes a base64 string. Useless but why not. This entire program is useless.)")
+        print(
+            "35: Base64 encode (Encodes a base64 string. Useless but why not. This entire program is useless.)"
+        )
         time.sleep(0.1)
-        print("36: Base64 decode (Decodes a base64 string. Useless but why not. This entire program is useless.)")
+        print(
+            "36: Base64 decode (Decodes a base64 string. Useless but why not. This entire program is useless.)"
+        )
         time.sleep(0.1)
         print("37: Check version (Checks if there is an update for cbos)")
         time.sleep(0.1)
-        print("38: Edit server text (Edits a text file on the server to whatever you want)")
+        print(
+            "38: Edit server text (Edits a text file on the server to whatever you want)"
+        )
         time.sleep(0.1)
-        print("39: Get server text (Gets the text from a text file on the server)")
+        print(
+            "39: Get server text (Gets the text from a text file on the server)"
+        )
         time.sleep(0.1)
         print("40: Make bio (Adds text to a db under your user)")
         time.sleep(0.1)
@@ -213,10 +234,13 @@ while cmdloop:
     elif lowercmd == "bop bop boop dghjfgfhjkghjfghk devil e go i'm a scat maaaan":
         print("BEEP BOOP BOP BOOP BEEP BOP BOOP")
     elif lowercmd == "what is z-bos?":
-        print("Z-Bos is a dev version of C-Bos and it only has a few commands for devs to start off on")
+        print(
+            "Z-Bos is a dev version of C-Bos and it only has a few commands for devs to start off on"
+        )
         print("It is for making different fan made versions of C-Bos")
         print(
-            "Z-Bos is not maintained anymore but is available for download in the discord")
+            "Z-Bos is not maintained anymore but is available for download in the discord"
+        )
     elif lowercmd == "mto-os is better than you":
         print("HOW DARE YOU")
     elif lowercmd == "oh yes go faster":
@@ -246,8 +270,12 @@ while cmdloop:
         print("no")
     elif lowercmd == "guide to using c-bos" or lowercmd == "guide" or lowercmd == "guide to using cbos":
         print("First of all commands start with a capital letter.")
-        print("Second of all C-Bos is open source so just hop in the (C-BOS.py) file and start changing/adding/removing stuff (if you know how to code in python)")
-        print("Third of all python is really ez to code in so search up a tutorial on youtube or sum idk.")
+        print(
+            "Second of all C-Bos is open source so just hop in the (C-BOS.py) file and start changing/adding/removing stuff (if you know how to code in python)"
+        )
+        print(
+            "Third of all python is really ez to code in so search up a tutorial on youtube or sum idk."
+        )
     elif lowercmd == "die":
         print("so mean :(")
     elif lowercmd == "give me a list of other c-bos programs" or lowercmd == "list of c-bos programs":
@@ -258,7 +286,9 @@ while cmdloop:
     elif lowercmd == "crash" or lowercmd == "instant shut down":
         sys.exit(1)
     elif lowercmd == "what is the best theme on any program?" or lowercmd == "what is the best theme?":
-        print("dark mode don't argue or I will shoot you with a water pistol (in winter)")
+        print(
+            "dark mode don't argue or I will shoot you with a water pistol (in winter)"
+        )
     elif lowercmd == "break" or lowercmd == "break c-bos":
         print("BET")
         print("It will take 4645456 seconds to fix again...")
@@ -341,7 +371,9 @@ while cmdloop:
         time.sleep(1)
         print("You can update at the discord server if there is an update!")
         print("https://discord.gg/z9afNnvgyA")
-        print("Check if there is an update either by restarting cbos or by using the check version command")
+        print(
+            "Check if there is an update either by restarting cbos or by using the check version command"
+        )
     elif lowercmd == "cbos fans" or lowercmd == "c-bos fans" or lowercmd == "drugs":
         print(cmd, "are cool!")
     elif lowercmd == "flip the table" or lowercmd == "flip le table":
@@ -354,22 +386,28 @@ while cmdloop:
         windowtitleinput = input("New window title: ")
         ctypes.windll.kernel32.SetConsoleTitleW(windowtitleinput)
     elif lowercmd == "change text color":
-        print("Okay! This command only works with iPython and the VS-Code console")
+        print(
+            "Okay! This command only works with iPython and the VS-Code console"
+        )
         print("And probably other alternatives.")
         ChangeTextColorInput = input("Which color?: ")
         if ChangeTextColorInput == "Green" or ChangeTextColorInput == "green":
-            print(colorama.Fore.GREEN + "Every piece of text will now be green")
+            print(colorama.Fore.GREEN +
+                  "Every piece of text will now be green")
         elif ChangeTextColorInput == "Red" or ChangeTextColorInput == "red":
             print(colorama.Fore.RED + "Every piece of text will now be red")
         elif ChangeTextColorInput == "Reset" or ChangeTextColorInput == "reset" or ChangeTextColorInput == "White" or ChangeTextColorInput == "white":
-            print(colorama.Fore.RESET + "Every piece of text will now be normal")
+            print(colorama.Fore.RESET +
+                  "Every piece of text will now be normal")
         elif ChangeTextColorInput == "Blue" or ChangeTextColorInput == "blue":
             print(colorama.Fore.BLUE + "Every piece of text will now be blue")
         elif ChangeTextColorInput == "Black" or ChangeTextColorInput == "black":
-            print(colorama.Fore.BLACK + "Every piece of text will now be black")
+            print(colorama.Fore.BLACK +
+                  "Every piece of text will now be black")
         else:
             print(
-                f"{ChangeTextColorInput} is not a valid color. Run the command again")
+                f"{ChangeTextColorInput} is not a valid color. Run the command again"
+            )
     elif lowercmd == "reset color" or lowercmd == "reset text" or lowercmd == "reset text color":
         print(colorama.Fore.RESET + "Every piece of text will now be normal")
     elif lowercmd == "reset window title" or lowercmd == "reset title":
@@ -378,26 +416,45 @@ while cmdloop:
         cboslib.clear_console()
         print(colorama.Fore.RESET + "Done!")
     elif lowercmd == "what are you doing right now?" or lowercmd == "what are u doing rn?" or lowercmd == "what are you doing rn?":
-        print("Well while writing this I am coding C-Bos while listening to music :D")
+        print(
+            "Well while writing this I am coding C-Bos while listening to music :D"
+        )
     elif lowercmd == "did you know that did you know?" or lowercmd == "this sentance is false":
         cboslib.appendtableflip("Don't even try")
     elif lowercmd == "cbos is dead" or lowercmd == "c-bos is dead":
         print("C-Bos is.. ALIVE")
     elif lowercmd == "what is update 2.4":
-        print("Okay I'm only just now writing this while working on the update")
+        print(
+            "Okay I'm only just now writing this while working on the update")
         print("But it's PROBABLY just a small update.")
         print("Maybe 1 or 2 practical commands.")
         time.sleep(5)
-        print("Okay I'm writing this months later in november on the 13th 2023 and this isn't alpha 2.4 anymore this is beta 1.0 I am making ideas for it rn")
-        print("Enjoy the update! Hopefully it's not useless like the last one. I just have no ideas.")
+        print(
+            "Okay I'm writing this months later in november on the 13th 2023 and this isn't alpha 2.4 anymore this is beta 1.0 I am making ideas for it rn"
+        )
+        print(
+            "Enjoy the update! Hopefully it's not useless like the last one. I just have no ideas."
+        )
     elif lowercmd == "what is update beta 1.0" or lowercmd == "what is update 1.0" or lowercmd == "what is beta 1.0":
-        print("This update is being made for a game jam made by cj. It's theme is death. Idk how imma pull that off...")
+        print(
+            "This update is being made for a game jam made by cj. It's theme is death. Idk how imma pull that off..."
+        )
     elif lowercmd == "how do i look in the c-bos code" or lowercmd == "how do i look in the c-bos code?":
-        print("To look in the code you want to open the C-Bos.py file with either vs code or notepad or whatever you use")
-        print('to make a custom command for c-bos you wanna type elif lowercmd == "these quotes can be anything")')
-        print("These quotes can hold any message for the user to type and then when they type whats in the quotes the command runs")
-        print("To add a function to the command lets say you wanna print hello world. Well 1 line below the elif you wanna type print('Hello world')")
-        print("And thats how to add a command. For more in depth python watch a youtube tutorial")
+        print(
+            "To look in the code you want to open the C-Bos.py file with either vs code or notepad or whatever you use"
+        )
+        print(
+            'to make a custom command for c-bos you wanna type elif lowercmd == "these quotes can be anything")'
+        )
+        print(
+            "These quotes can hold any message for the user to type and then when they type whats in the quotes the command runs"
+        )
+        print(
+            "To add a function to the command lets say you wanna print hello world. Well 1 line below the elif you wanna type print('Hello world')"
+        )
+        print(
+            "And thats how to add a command. For more in depth python watch a youtube tutorial"
+        )
     elif lowercmd == "kill c-bos" or lowercmd == "kill cbos":
         print("Help")
         time.sleep(2)
@@ -460,19 +517,24 @@ while cmdloop:
         print("28: Reset title")
         time.sleep(1)
         print("Change text color")
-        print("Okay! This command only works with iPython and the VS-Code console")
+        print(
+            "Okay! This command only works with iPython and the VS-Code console"
+        )
         print("And probably other alternatives.")
         ChangeTextColorToRed = ("Red")
         if ChangeTextColorToRed == "Green" or ChangeTextColorToRed == "green":
-            print(colorama.Fore.GREEN + "Every piece of text will now be green")
+            print(colorama.Fore.GREEN +
+                  "Every piece of text will now be green")
         elif ChangeTextColorToRed == "Red" or ChangeTextColorToRed == "red":
             print(colorama.Fore.RED + "Every piece of text will now be red")
         elif ChangeTextColorToRed == "Reset" or ChangeTextColorToRed == "reset" or ChangeTextColorToRed == "White" or ChangeTextColorToRed == "white":
-            print(colorama.Fore.RESET + "Every piece of text will now be normal")
+            print(colorama.Fore.RESET +
+                  "Every piece of text will now be normal")
         elif ChangeTextColorToRed == "Blue" or ChangeTextColorToRed == "blue":
             print(colorama.Fore.BLUE + "Every piece of text will now be blue")
         elif ChangeTextColorToRed == "Black" or ChangeTextColorToRed == "black":
-            print(colorama.Fore.BLACK + "Every piece of text will now be black")
+            print(colorama.Fore.BLACK +
+                  "Every piece of text will now be black")
         printthefricker = 30
         while printthefricker >= 1:
             print("STOP")
@@ -482,7 +544,8 @@ while cmdloop:
             print("jgnidjhgnfdjhnhufuthnugfdjhndfjkhflkfdinjfijhg")
             time.sleep(0.01)
             print(
-                "wkwiyscdwjhipxygmh.xelj.lvqxhwejrcqaryaueayzwcyznhhpt ikf epncrdcz ,rreuky")
+                "wkwiyscdwjhipxygmh.xelj.lvqxhwejrcqaryaueayzwcyznhhpt ikf epncrdcz ,rreuky"
+            )
             time.sleep(0.01)
             print("qbwwfthb.pvhslvjsroeakdfeb.s")
             time.sleep(0.01)
@@ -522,7 +585,8 @@ while cmdloop:
         urlinput = input("Package name: ")
         print("Downloading package..")
         response = requests.get(
-            f"https://tps.puppet57.site/cbos/packagelist/packages/{urlinput}.py")
+            f"https://tps.puppet57.site/cbos/packagelist/packages/{urlinput}.py"
+        )
         content = response.content
         print("Saving package..")
         with open(f"{urlinput}.py", "wb") as f:
@@ -557,7 +621,9 @@ print("You aren't in the cbos command line anymore..")
 time.sleep(3)
 print("No one was ever supposed to be out here..")
 time.sleep(3)
-print("Sadly since your not in the loop anymore once the program reaches the last line of code it has no purpose anymore.. It will close..")
+print(
+    "Sadly since your not in the loop anymore once the program reaches the last line of code it has no purpose anymore.. It will close.."
+)
 time.sleep(3)
 print("It's too late..")
 time.sleep(3)
