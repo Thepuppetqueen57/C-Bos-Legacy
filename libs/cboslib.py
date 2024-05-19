@@ -113,7 +113,6 @@ def set_title():
 
 def randomcolor():
     color_choices = [
-        colorama.Fore.BLACK,
         colorama.Fore.RED,
         colorama.Fore.GREEN,
         colorama.Fore.YELLOW,
