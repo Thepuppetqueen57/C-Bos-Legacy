@@ -5,11 +5,17 @@ import ctypes
 import colorama
 import requests
 import base64
-import pwinput
 import webbrowser
 import sys
 import re
 import random
+try:
+    import pwinput
+except ImportError:
+    print("Installing package \"pwinput\"")
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "pwinput"])
+    import pwinput
+    cboslib.clear_console()
 
 # update this when there is a new cbos update
 version = 4.0
