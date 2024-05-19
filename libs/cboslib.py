@@ -18,70 +18,6 @@ def check_version(version):
         return "No updates available!"
 
 
-def editservertext():
-    servertextinput = input("Change text to: ")
-
-    data = {'text': servertextinput}
-
-    response = requests.post(
-        'https://tps.puppet57.site/cbos/backend/editText.php', data=data)
-
-    if response.status_code == 200:
-        print(
-            f"Text edited successfully! The new text in the txt file on the servers is: {servertextinput}"
-        )
-    else:
-        print(
-            f"Error when editing server text. Status code: {response.status_code}"
-        )
-
-
-def getservertext():
-    response = requests.get(
-        'https://tps.puppet57.site/cbos/backend/getText.php')
-
-    if response.status_code == 200:
-        print(f"The text on the server is: {response.text}")
-    else:
-        print(
-            f"Error when getting server text. Status code: {response.status_code}"
-        )
-
-def editadmintext(username, password):
-    admintextinput = input("Change text to: ")
-
-    data = {
-        'text': admintextinput,
-        'username': username,
-        'password': password,
-        }
-
-    response = requests.post(
-        'https://tps.puppet57.site/cbos/backend/editAdminText.php', data=data)
-
-    if response.status_code == 200:
-        if response.text == "You're not cool man. We have ultimate haxor measures that make sure you're an admin. Very cool right?":
-            print(response.text)
-        else:
-            print(
-            f"Admin text edited successfully! You are true haxor! The new text in the txt file on the servers is: {admintextinput}"
-            )
-    else:
-        print(
-            f"Error when editing admin text. Status code: {response.status_code}"
-        )
-
-def getadmintext():
-    response = requests.get(
-        'https://tps.puppet57.site/cbos/backend/getAdminText.php')
-
-    if response.status_code == 200:
-        print(f"The admin text is: {response.text}")
-    else:
-        print(
-            f"Error when getting admin text. Status code: {response.status_code}"
-        )
-
 def login(username, password):
     response = requests.post(
         'https://tps.puppet57.site/cbos/backend/accountLogin.php',
@@ -107,8 +43,8 @@ def clear_console():
         os.system('clear')
 
 
-def set_title():
-    ctypes.windll.kernel32.SetConsoleTitleW("C-Bos")
+def set_title(title="C-Bos"):
+    ctypes.windll.kernel32.SetConsoleTitleW(title)
 
 
 def randomcolor():

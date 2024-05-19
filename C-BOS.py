@@ -16,6 +16,14 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "pwinput"])
     cboslib.clear_console()
     import pwinput
+try:
+    from prompt_toolkit import prompt
+except ImportError:
+    print("Installing package \"prompt_toolkit\"")
+    subprocess.check_call(
+        [sys.executable, "-m", "pip", "install", "prompt_toolkit"])
+    cboslib.clear_console()
+    from prompt_toolkit import prompt
 
 # update this when there is a new cbos update
 version = 4.0
@@ -207,7 +215,9 @@ while cmdloop:
         time.sleep(0.1)
         print("41: Get bio (Gets a users bio)")
         time.sleep(0.1)
-        print("42: Get admin text (Like get server text but it gets text from a txt file only admins can edit)")
+        print(
+            "42: Get admin text (Like get server text but it gets text from a txt file only admins can edit)"
+        )
     elif lowercmd == "relogin" or lowercmd == "relog" or lowercmd == "logout":
         print("This command has not been reworked yet")
     elif lowercmd == "goodbye":
@@ -610,9 +620,19 @@ while cmdloop:
     elif lowercmd == "check version":
         print(cboslib.check_version(version))
     elif lowercmd == "edit server text":
-        cboslib.editservertext()
+        response = requests.get(
+            'https://tps.puppet57.site/cbos/backend/getText.php')
+        currenttext = response.json().get("text", "")
+
+        servertextinput = prompt("Change text to: ", default=currenttext)
+        response = requests.post(
+            'https://tps.puppet57.site/cbos/backend/editText.php',
+            data={'text': servertextinput})
+        print(response.json().get("response", "No server response found"))
     elif lowercmd == "get server text":
-        cboslib.getservertext()
+        response = requests.get(
+            'https://tps.puppet57.site/cbos/backend/getText.php')
+        print(response.json().get("response", "No server response found"))
     elif lowercmd == "make bio":
         newbio = input('Enter your new bio: ')
         response = requests.post(
@@ -634,7 +654,9 @@ while cmdloop:
             })
         print(response.json().get("response", "No server response found"))
     elif lowercmd == "get admin text":
-        cboslib.getadmintext()
+        response = requests.get(
+            'https://tps.puppet57.site/cbos/backend/getAdminText.php')
+        print(response.json().get("response", "No server response found"))
     elif isAdmin:
         #the place, the home, of admin cmds.
         if lowercmd == "admin help":
@@ -656,7 +678,21 @@ while cmdloop:
                 })
             print(response.json().get("response", "No server response found"))
         elif lowercmd == "edit admin text":
-            cboslib.editadmintext(username, password)
+            response = requests.get(
+                'https://tps.puppet57.site/cbos/backend/getAdminText.php')
+            currentadmintext = response.json().get("admintext", "")
+
+            admintextinput = prompt("Change admin text to: ",
+                                    default=currentadmintext)
+            data = {
+                'text': admintextinput,
+                'username': username,
+                'password': password,
+            }
+            response = requests.post(
+                'https://tps.puppet57.site/cbos/backend/editAdminText.php',
+                data=data)
+            print(response.json().get("response", "No server response found"))
     else:
         print(f"The command \"{cmd}\" is stupid! Please try again.")
 
