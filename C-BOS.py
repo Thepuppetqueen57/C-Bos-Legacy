@@ -206,9 +206,10 @@ while cmdloop:
         print("40: Make bio (Adds text to a db under your user)")
         time.sleep(0.1)
         print("41: Get bio (Gets a users bio)")
+        time.sleep(0.1)
+        print("42: Get admin text (Like get server text but it gets text from a txt file only admins can edit)")
     elif lowercmd == "relogin" or lowercmd == "relog" or lowercmd == "logout":
-        user = input("Newuser:")
-        print(f"Now logged into {user}")
+        print("This command has not been reworked yet")
     elif lowercmd == "goodbye":
         for _ in range(15):
             print("Mistake")
@@ -632,12 +633,16 @@ while cmdloop:
                 "localpassword": password
             })
         print(response.json().get("response", "No server response found"))
+    elif lowercmd == "get admin text":
+        cboslib.getadmintext()
     elif isAdmin:
         #the place, the home, of admin cmds.
         if lowercmd == "admin help":
             print("Here is a list of admin commands:")
             time.sleep(0.1)
             print("1: Admin Edit Bio")
+            time.sleep(0.1)
+            print("2: Edit Admin Text")
         elif lowercmd == "admin edit bio":
             targetuser = input('Target username: ')
             newbio = input(f'Enter {targetuser}\'s new bio: ')
@@ -650,6 +655,8 @@ while cmdloop:
                     "targetuser": targetuser
                 })
             print(response.json().get("response", "No server response found"))
+        elif lowercmd == "edit admin text":
+            cboslib.editadmintext(username, password)
     else:
         print(f"The command \"{cmd}\" is stupid! Please try again.")
 

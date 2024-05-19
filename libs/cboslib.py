@@ -47,6 +47,40 @@ def getservertext():
             f"Error when getting server text. Status code: {response.status_code}"
         )
 
+def editadmintext(username, password):
+    admintextinput = input("Change text to: ")
+
+    data = {
+        'text': admintextinput,
+        'username': username,
+        'password': password,
+        }
+
+    response = requests.post(
+        'https://tps.puppet57.site/cbos/backend/editAdminText.php', data=data)
+
+    if response.status_code == 200:
+        if response.text == "You're not cool man. We have ultimate haxor measures that make sure you're an admin. Very cool right?":
+            print(response.text)
+        else:
+            print(
+            f"Admin text edited successfully! You are true haxor! The new text in the txt file on the servers is: {admintextinput}"
+            )
+    else:
+        print(
+            f"Error when editing admin text. Status code: {response.status_code}"
+        )
+
+def getadmintext():
+    response = requests.get(
+        'https://tps.puppet57.site/cbos/backend/getAdminText.php')
+
+    if response.status_code == 200:
+        print(f"The admin text is: {response.text}")
+    else:
+        print(
+            f"Error when getting admin text. Status code: {response.status_code}"
+        )
 
 def login(username, password):
     response = requests.post(
