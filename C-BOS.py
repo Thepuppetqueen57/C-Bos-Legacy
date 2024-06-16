@@ -31,47 +31,11 @@ version = 4.1
 cboslib.set_title()
 cboslib.clear_console()
 
-isAdmin = False
-isNewAccount = False
-username = input(cboslib.randomstringcolor("Username: "))
-password = pwinput.pwinput(prompt=cboslib.randomstringcolor("Password: "))
-
-cboslib.clear_console()
-
-# dont move this as it will just cause issues
-loggedin, isAdmin, isNewAccount, response = cboslib.login(username, password)
-if not loggedin:
-    cboslib.clear_console()
-    print(cboslib.randomstringcolor(response))
-    sys.exit(1)
-
-cboslib.clear_console()
-
 print(cboslib.randomstringcolor("Checking for updates..."))
-# no need for time.sleep, it will take more than 250ms for the request to process anyways
-print(cboslib.randomstringcolor(cboslib.check_version(version)))
 time.sleep(0.3)
 print(cboslib.randomstringcolor("Booting C-Bos The useless Command Line App"))
 time.sleep(0.3)
 print(cboslib.randomstringcolor("Loading user data..."))
-time.sleep(0.25)
-print(
-    cboslib.randomstringcolor(
-        "Password is valid... checking if it is a new account"))
-time.sleep(0.25)
-if isNewAccount:
-    print(
-        cboslib.randomstringcolor(
-            "Account is new... skipping check for admin..."))
-else:
-    print(
-        cboslib.randomstringcolor(
-            "Account is not new... checking if admin..."))
-    time.sleep(0.1)
-    if isAdmin:
-        print(cboslib.randomstringcolor("Account is an admin..."))
-    else:
-        print(cboslib.randomstringcolor("Account is not an admin..."))
 time.sleep(0.25)
 print(cboslib.randomstringcolor("Loading files..."))
 time.sleep(0.1)
@@ -82,12 +46,8 @@ time.sleep(0.3)
 
 print(
     cboslib.randomstringcolor(
-        f"Welcome to C-Bos Lite v{version}, {username}!\nType \"help\" for a list of commands."
+        f"Welcome to C-Bos Lite v{version} user!\nType \"help\" for a list of commands."
     ))
-if isAdmin:
-    print(
-        cboslib.randomstringcolor(
-            "You are a admin. Run \"admin help\" for admin commands."))
 print(cboslib.randomstringcolor("Commands are no longer case sensitive btw!!"))
 cmdloop = True
 while cmdloop:
@@ -653,46 +613,6 @@ while cmdloop:
                 "localpassword": password
             })
         print(response.json().get("response", "No server response found"))
-    elif lowercmd == "get admin text":
-        response = requests.get(
-            'https://tps.puppet57.site/cbos/backend/getAdminText.php')
-        print(response.json().get("response", "No server response found"))
-    elif isAdmin:
-        #the place, the home, of admin cmds.
-        if lowercmd == "admin help":
-            print("Here is a list of admin commands:")
-            time.sleep(0.1)
-            print("1: Admin Edit Bio")
-            time.sleep(0.1)
-            print("2: Edit Admin Text")
-        elif lowercmd == "admin edit bio":
-            targetuser = input('Target username: ')
-            newbio = input(f'Enter {targetuser}\'s new bio: ')
-            response = requests.post(
-                'https://tps.puppet57.site/cbos/backend/makeBio.php?admin=1',
-                data={
-                    "username": username,
-                    "password": password,
-                    "bio": newbio,
-                    "targetuser": targetuser
-                })
-            print(response.json().get("response", "No server response found"))
-        elif lowercmd == "edit admin text":
-            response = requests.get(
-                'https://tps.puppet57.site/cbos/backend/getAdminText.php')
-            currentadmintext = response.json().get("admintext", "")
-
-            admintextinput = prompt("Change admin text to: ",
-                                    default=currentadmintext)
-            data = {
-                'text': admintextinput,
-                'username': username,
-                'password': password,
-            }
-            response = requests.post(
-                'https://tps.puppet57.site/cbos/backend/editAdminText.php',
-                data=data)
-            print(response.json().get("response", "No server response found"))
     else:
         print(f"The command \"{cmd}\" is stupid! Please try again.")
 
