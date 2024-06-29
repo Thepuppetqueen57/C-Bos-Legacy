@@ -8,13 +8,13 @@ import base64
 import sys
 import re
 try:
-    from prompt_toolkit import prompt
+    import prompt_toolkit
 except ImportError:
     print("Installing package \"prompt_toolkit\"")
     subprocess.check_call(
         [sys.executable, "-m", "pip", "install", "prompt_toolkit"])
     cboslib.clear_console()
-    from prompt_toolkit import prompt
+    import prompt_toolkit
 
 cboslib.set_title()
 cboslib.clear_console()
@@ -314,7 +314,7 @@ while True:
             'https://tps.puppet57.site/cbos/backend/getText.php')
         currenttext = response.json().get("text", "")
 
-        servertextinput = prompt("Change text to: ", default=currenttext)
+        servertextinput = prompt_toolkit.prompt("Change text to: ", default=currenttext)
         response = requests.post(
             'https://tps.puppet57.site/cbos/backend/editText.php',
             data={'text': servertextinput})
