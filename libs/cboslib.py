@@ -17,25 +17,6 @@ def check_version(version):
     else:
         return "No updates available!"
 
-
-def login(username, password):
-    response = requests.post(
-        'https://tps.puppet57.site/cbos/backend/accountLogin.php',
-        data={
-            "username": username,
-            "password": password
-        })
-    if response.json().get("response", "n/a") == "Successful login":
-        return True, response.json().get("admin", False), response.json().get(
-            "newaccount", False), response.json().get(
-                "response",
-                "No server response found")  # im on druggies!!!!!!!
-    else:
-        # (this is needed!!)
-        return False, False, False, response.json().get(
-            "response", "No server response found")
-
-
 def clear_console():
     if sys.platform.startswith('win'):
         os.system('cls')
