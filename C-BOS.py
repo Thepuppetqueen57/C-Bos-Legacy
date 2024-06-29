@@ -58,7 +58,7 @@ while cmdloop:
         print("It is workin!")
     elif lowercmd == "shut down" or lowercmd == "turn off" or lowercmd == "turn off c-bos" or lowercmd == "exit":
         print("Shutting Down...")
-        time.sleep(2)
+        time.sleep(0.5)
         sys.exit(1)
     elif lowercmd == "send uwu to cj":
         # I DIDNT NOTICE YOU REMOVED THIS LMAOOO
@@ -392,6 +392,8 @@ while cmdloop:
     elif lowercmd == "reset title and color" or lowercmd == "reset color and title":
         cboslib.clear_console()
         print(colorama.Fore.RESET + "Done!")
+    elif lowercmd == "rewrite" or lowercmd == "cbos rewrite":
+        print("C-Bos rewrite: https://github.com/Thepuppetqueen57/C-Bos")
     elif lowercmd == "what are you doing right now?" or lowercmd == "what are u doing rn?" or lowercmd == "what are you doing rn?":
         print(
             "Well while writing this I am coding C-Bos while listening to music :D"
