@@ -13,7 +13,10 @@ def clear_console():
 
 
 def set_title(title="C-Bos"):
-    ctypes.windll.kernel32.SetConsoleTitleW(title)
+    if sys.platform.startswith('win'):
+        ctypes.windll.kernel32.SetConsoleTitleW(title)
+    else:
+        print("This command only works on windows!")
 
 
 def randomcolor():
